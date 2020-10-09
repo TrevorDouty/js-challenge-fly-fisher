@@ -1,0 +1,15 @@
+body { min-height: 100vh; display: flex; flex-direction: column; }
+header{height: 12vh; } 
+main{flex-grow: 1;} 
+footer{ height: 8vh;}
+
+.fishbg{
+  background-image: url("fishing.bg1.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cast-height{
+  height: 8vh;
+}
