@@ -4,6 +4,7 @@
 // increase casting resources when buttons are clicked//
 // make cast button randomly catch fish when clicked and decrease cast resource on click.//
 // when fish is caught increase fish amount counter//
+let fishCount = 0
 let equipment = {
 
   bait: {
@@ -34,8 +35,13 @@ let equipment = {
 }
 
 function buttons(buttonClicked) {
-  if (equipment[buttonClicked].count >= 20)
+  if (equipment[buttonClicked].count >= 20) {
     equipment[buttonClicked].castResource++
+    equipment[buttonClicked].count -= 20
+
+    drawResource()
+    drawButtons()
+  }
 }
 
 function boatClick() {
@@ -48,30 +54,54 @@ function boatClick() {
 }
 
 function castClick() {
-  if (equipment.bait.count == 20 && equipment.net.count == 10 && equipment.reel.count == 20 && equipment.rod.count == 15) {
-    Math.floor(Math.random())
-  }
+  if (equipment.bait.castResource >= 10 && equipment.net.castResource >= 7 && equipment.reel.castResource >= 5 && equipment.rod.castResource >= 3) {
 
+    fishCount++
+    equipment.bait.castResource -= 10
+    equipment.net.castResource -= 7
+    equipment.reel.castResource == 5
+    equipment.rod.castResource -= 3
+
+
+
+  }
+  drawButtons()
+  drawResource()
 }
 
-function drawButtons() {
-  let baitElem = document.getElementById('bait')
 
+
+function drawButtons() {
+  let fishCaughtElem = document.getElementById("fish-caught")
+  fishCaughtElem.innerText = `${fishCount}`
+
+  let baitElem = document.getElementById('bait')
   baitElem.innerText = `BAIT: ${equipment.bait.count}`
 
   let rodElem = document.getElementById('rod')
-  rodElem.innerText = `ROD: ${equipment.rod.count}`
+  rodElem.innerText = `RODS: ${equipment.rod.count}`
 
   let reelElem = document.getElementById('reel')
-  reelElem.innerText = `REEL: ${equipment.reel.count}`
+  reelElem.innerText = `REELS: ${equipment.reel.count}`
 
   let netElem = document.getElementById('net')
-  netElem.innerText = `NET: ${equipment.net.count}`
+  netElem.innerText = `NETS: ${equipment.net.count}`
 
   let fishermanElem = document.getElementById('fisherman')
-  fishermanElem.innerText = `FISHERMAN: ${equipment.fisherman.count}`
+  fishermanElem.innerText = `Fisherman: 10 Casts`
+}
+
+function drawResource() {
+  let resourceElem = document.getElementById('resources')
+  resourceElem.innerText = `BAIT: ${equipment.bait.castResource}
+RODS: ${equipment.rod.castResource}
+REELS: ${equipment.reel.castResource}
+ NETS: ${equipment.net.castResource}`
 }
 
 
 
+
+
+drawResource()
 drawButtons()
