@@ -35,7 +35,7 @@ let equipment = {
     name: "fisherman",
     count: 0,
     castResource: 0,
-    cost: 200,
+    cost: 2,
   }
 }
 
@@ -43,20 +43,20 @@ function buttons(buttonClicked) {
   if (equipment[buttonClicked].count >= equipment[buttonClicked].cost) {
     equipment[buttonClicked].castResource++
     equipment[buttonClicked].count -= equipment[buttonClicked].cost
-
     equipment[buttonClicked].cost *= 2
-    // if (equipment[buttonClicked].name == equipment.fisherman.name) {
-    //   setInterval(function fisherman() {
-    //     equipment.bait.castResource++
-    //     equipment.net.castResource++
-    //     equipment.reel.castResource++
-    //     equipment.rod.castResource++
-    //     drawResource()
-    //   }, 3000)
+    if (equipment[buttonClicked].name == equipment.fisherman.name) {
+      setInterval(function fisherman() {
+        equipment.bait.castResource++
+        equipment.net.castResource++
+        equipment.reel.castResource++
+        equipment.rod.castResource++
+        drawResource()
+      }, 3000)
 
+    }
+    drawResource()
+    drawButtons()
   }
-  drawResource()
-  drawButtons()
 }
 
 function boatClick() {
@@ -76,6 +76,7 @@ function castClick() {
     equipment.net.castResource -= 2
     equipment.reel.castResource -= 1
     equipment.rod.castResource -= 1
+    equipment.fisherman.castResource -= 1
 
 
 
@@ -83,15 +84,6 @@ function castClick() {
   drawButtons()
   drawResource()
 }
-
-// function fisherman() {
-
-//   equipment.bait.castResource++
-//   equipment.net.castResource++
-//   equipment.reel.castResource++
-//   equipment.rod.castResource++
-//   drawResource()
-// }
 
 
 function drawButtons() {
@@ -110,7 +102,7 @@ function drawButtons() {
   netElem.innerText = `NETS: ${equipment.net.count}`
 
   let fishermanElem = document.getElementById('fisherman')
-  fishermanElem.innerText = `Fisherman: Cost 200`
+  fishermanElem.innerText = `Fisherman: Cost 200 ${equipment.fisherman.count}`
 
   let fishTotalElem = document.getElementById('fish-total')
   fishTotalElem.innerText = `Fish Caught: ${fishCount}`
