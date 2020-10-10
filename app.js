@@ -93,7 +93,8 @@ function drawButtons() {
 
 function drawResource() {
   let resourceElem = document.getElementById('resources')
-  resourceElem.innerText = `BAIT: ${equipment.bait.castResource}
+  resourceElem.innerText = `Resources Available:
+  BAIT: ${equipment.bait.castResource}
 RODS: ${equipment.rod.castResource}
 REELS: ${equipment.reel.castResource}
  NETS: ${equipment.net.castResource}`
