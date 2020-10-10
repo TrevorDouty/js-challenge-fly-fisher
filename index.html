@@ -23,34 +23,37 @@
   </header>
   <main class="container-fluid bg-dark fishbg">
     <div class="row">
-      <div class="col-3 d-flex jusitfy-self start text-light border border-light">
-        <h3>Total Casts Per Second</h3>
+      <div class="col-3 ">
+        <h3></h3>
       </div>
       <div class="col-6"><img src="fisherman.gif" alt="" class="img-fluid" onclick="boatClick()"></div>
-      <div class="col-3 d-flex justify-self-end text-light border border-light">Fish Caught Total</div>
+      <div class="col-3 d-flex justify-self-end text-light">
+        <h1 id="fish-total">>Fish Caught Total</h1>
+      </div>
     </div>
     <div class="row">
-      <div class=" col-3 border border-light text-light ">
+      <div class=" col-3  text-light ">
         <div class="row justify-content-around">
-          <div class="col-6 my-2"><button class=" btn btn-block btn-warning" id="reel"
+          <div class="col-6 my-4"><button class=" btn btn-block btn-warning" id="reel"
               onclick="buttons('reel')">REEL</button>
           </div>
-          <div class="col-6 my-2"><button class=" btn btn-block btn-warning" id="bait" onclick="buttons('bait')">BAIT
+          <div class="col-6 my-4"><button class=" btn btn-block btn-warning" id="bait" onclick="buttons('bait')">BAIT
             </button></div>
-          <div class=" col-6 mb-2"><button class=" btn btn-block btn-warning" id="rod"
+          <div class=" col-6 mb-4"><button class=" btn btn-block btn-warning" id="rod"
               onclick="buttons('rod')">Rod</button>
           </div>
-          <div class="col-6 mb-2"><button class=" btn btn-block btn-warning" id="net"
+          <div class="col-6 mb-4"><button class=" btn btn-block btn-warning" id="net"
               onclick="buttons('net')">Net</button></div>
-          <div class="col-8 mb-2"><button class=" btn btn-block btn-warning" id="fisherman"
-              onclick="buttons('fisherman')">Fisherman</button></div>
+          <div class="col-8 mb-4"><button class=" btn btn-block btn-warning" id="fisherman"
+              onclick="buttons('fisherman')" id="fishermanButton">Fisherman</button>
+          </div>
 
         </div>
       </div>
       <div class="col-6 text-center text-light">
         <h1 id="resources"></h1>
       </div>
-      <div class="d-flex col-3 border border-light text-light">
+      <div class="d-flex col-3 text-light">
         <button class="text-light text-center btn btn-block btn-danger cast-height align-self-center"
           onclick="castClick()" id="fish-caught">CAST</button>
       </div>

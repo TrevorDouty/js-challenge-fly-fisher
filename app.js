@@ -45,6 +45,14 @@ function buttons(buttonClicked) {
     equipment[buttonClicked].count -= equipment[buttonClicked].cost
 
     equipment[buttonClicked].cost *= 2
+    // if (equipment[buttonClicked].name == equipment.fisherman.name) {
+    //   setInterval(function fisherman() {
+    //     equipment.bait.castResource++
+    //     equipment.net.castResource++
+    //     equipment.reel.castResource++
+    //     equipment.rod.castResource++
+    //     drawResource()
+    //   }, 3000)
 
   }
   drawResource()
@@ -61,13 +69,13 @@ function boatClick() {
 }
 
 function castClick() {
-  if (equipment.bait.castResource >= 10 && equipment.net.castResource >= 7 && equipment.reel.castResource >= 5 && equipment.rod.castResource >= 3) {
+  if (equipment.bait.castResource >= 2 && equipment.net.castResource >= 2 && equipment.reel.castResource >= 1 && equipment.rod.castResource >= 1) {
 
     fishCount++
-    equipment.bait.castResource -= 10
-    equipment.net.castResource -= 7
-    equipment.reel.castResource == 5
-    equipment.rod.castResource -= 3
+    equipment.bait.castResource -= 2
+    equipment.net.castResource -= 2
+    equipment.reel.castResource -= 1
+    equipment.rod.castResource -= 1
 
 
 
@@ -76,11 +84,18 @@ function castClick() {
   drawResource()
 }
 
+// function fisherman() {
+
+//   equipment.bait.castResource++
+//   equipment.net.castResource++
+//   equipment.reel.castResource++
+//   equipment.rod.castResource++
+//   drawResource()
+// }
 
 
 function drawButtons() {
-  let fishCaughtElem = document.getElementById("fish-caught")
-  fishCaughtElem.innerText = `${fishCount}`
+
 
   let baitElem = document.getElementById('bait')
   baitElem.innerText = `BAIT: ${equipment.bait.count}`
@@ -96,6 +111,9 @@ function drawButtons() {
 
   let fishermanElem = document.getElementById('fisherman')
   fishermanElem.innerText = `Fisherman: Cost 200`
+
+  let fishTotalElem = document.getElementById('fish-total')
+  fishTotalElem.innerText = `Fish Caught: ${fishCount}`
 }
 
 function drawResource() {
@@ -104,7 +122,8 @@ function drawResource() {
   BAIT: ${equipment.bait.castResource}
 RODS: ${equipment.rod.castResource}
 REELS: ${equipment.reel.castResource}
- NETS: ${equipment.net.castResource}`
+ NETS: ${equipment.net.castResource}
+ Fisherman: ${equipment.fisherman.castResource}`
 }
 
 
