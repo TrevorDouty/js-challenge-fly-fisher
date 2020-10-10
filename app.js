@@ -11,37 +11,44 @@ let equipment = {
     name: "bait",
     count: 0,
     castResource: 0,
+    cost: 2,
   },
   reel: {
     name: "reel",
     count: 0,
     castResource: 0,
+    cost: 2,
   },
   rod: {
     name: "rod",
     count: 0,
     castResource: 0,
+    cost: 2,
   },
   net: {
     name: "net",
     count: 0,
     castResource: 0,
+    cost: 2,
   },
   fisherman: {
     name: "fisherman",
     count: 0,
     castResource: 0,
+    cost: 200,
   }
 }
 
 function buttons(buttonClicked) {
-  if (equipment[buttonClicked].count >= 20) {
+  if (equipment[buttonClicked].count >= equipment[buttonClicked].cost) {
     equipment[buttonClicked].castResource++
-    equipment[buttonClicked].count -= 20
+    equipment[buttonClicked].count -= equipment[buttonClicked].cost
 
-    drawResource()
-    drawButtons()
+    equipment[buttonClicked].cost *= 2
+
   }
+  drawResource()
+  drawButtons()
 }
 
 function boatClick() {
@@ -88,7 +95,7 @@ function drawButtons() {
   netElem.innerText = `NETS: ${equipment.net.count}`
 
   let fishermanElem = document.getElementById('fisherman')
-  fishermanElem.innerText = `Fisherman: 10 Casts`
+  fishermanElem.innerText = `Fisherman: Cost 200`
 }
 
 function drawResource() {
