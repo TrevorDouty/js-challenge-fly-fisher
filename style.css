@@ -21,3 +21,7 @@ footer{ height: 8vh;}
   
   
 }
+
+.pointer{
+  cursor: pointer;
+}

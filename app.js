@@ -35,7 +35,7 @@ let equipment = {
     name: "fisherman",
     count: 0,
     castResource: 0,
-    cost: 2,
+    cost: 100,
   }
 }
 
@@ -76,14 +76,19 @@ function castClick() {
     equipment.net.castResource -= 2
     equipment.reel.castResource -= 1
     equipment.rod.castResource -= 1
-    equipment.fisherman.castResource -= 1
 
+
+    // drawButtons()
+    // drawResource()
 
 
   }
   drawButtons()
   drawResource()
+
+
 }
+
 
 
 function drawButtons() {
@@ -118,6 +123,9 @@ REELS: ${equipment.reel.castResource}
  Fisherman: ${equipment.fisherman.castResource}`
 }
 
+// function achievements() {
+
+// }
 
 
 
