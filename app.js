@@ -35,7 +35,7 @@ let equipment = {
     name: "fisherman",
     count: 0,
     castResource: 0,
-    cost: 100,
+    cost: 200,
   }
 }
 
